@@ -1,0 +1,12 @@
+<!-- bulletin/templates/bulletin/post_list.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Bulletin Posts</h2>
+  <ul>
+    {% for post in posts %}
+      <li><a href="{% url 'bulletin_post_detail' post.pk %}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'bulletin_post_new' %}">New Post</a>
+{% endblock %}

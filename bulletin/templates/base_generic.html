@@ -1,0 +1,24 @@
+<!-- templates/base_generic.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>{% block title %}Bulletin Board{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bulletin Board</h1>
+        <nav>
+            <a href="{% url 'note_list' %}">Sticky Notes</a> |
+            <a href="{% url 'bulletin_post_list' %}">Bulletin Posts</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Bulletin Board Application</p>
+    </footer>
+</body>
+</html>
