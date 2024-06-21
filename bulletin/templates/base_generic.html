@@ -2,23 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static %}
-    <title>{% block title %}Bulletin Board{% endblock %}</title>
+    <title>{% block title %}Sticky Notes{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Bulletin Board</h1>
+    <header class="bg-dark text-white text-center py-2">
+        <h1><a class="text-white" href="{% url 'notes:note_list' %}">Sticky Notes</a></h1>
         <nav>
-            <a href="{% url 'note_list' %}">Sticky Notes</a> |
-            <a href="{% url 'bulletin_post_list' %}">Bulletin Posts</a>
+            <a class="text-white" href="{% url 'notes:note_list' %}">Notes</a> |
+            <a class="text-white" href="{% url 'bulletin:post_list' %}">Bulletin</a>
         </nav>
     </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2024 Bulletin Board Application</p>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="bg-dark text-white text-center py-2">
+        <p>&copy; 2023 Sticky Notes</p>
     </footer>
 </body>
 </html>
